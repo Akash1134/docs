@@ -1,6 +1,7 @@
 ---
 title: Creating a repository from a template
 intro: You can generate a new repository with the same directory structure and files as an existing repository.
+permissions: 'Anyone with read access to a template repository can create a repository from that template.'
 redirect_from:
   - /articles/creating-a-repository-from-a-template
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
@@ -8,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -16,7 +16,7 @@ shortTitle: Create from a template
 ---
 ## About repository templates
 
-Anyone with read permissions to a template repository can create a repository from that template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
+{% data reusables.repositories.about-template-repositories %} For more information about creation of a repository template, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
 
 {% tip %}
 
@@ -40,7 +40,7 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 {% ifversion fpt or ghec %}
 1. Select **Create a new repository**.
 
-   ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+   ![Screenshot of the "Use this template" button and the dropdown menu expanded to show the "Open in a codespace" option.](/assets/images/help/repository/use-this-template-button.png)
 
    {% note %}
 
@@ -52,6 +52,5 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 1. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 1. Click **Create repository from template**.

@@ -5,11 +5,9 @@ intro: Use a container to run the steps in a job.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -39,4 +37,3 @@ versions:
 ## Setting container resource options
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
-

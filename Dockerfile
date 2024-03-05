@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:18.14-alpine@sha256:045b1a1c90bdfd8fcaad0769922aa16c401e31867d8bf5833365b0874884bbae as base
+FROM node:20-alpine@sha256:c0a3badbd8a0a760de903e00cedbca94588e609299820557e72cba2a53dbaa2c as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -44,11 +44,11 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-COPY stylesheets ./stylesheets
-COPY pages ./pages
-COPY components ./components
-COPY lib ./lib
 COPY src ./src
+# The star is because it's an optional directory
+COPY .remotejson-cache* ./.remotejson-cache
+# The star is because it's an optional file
+COPY .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -88,17 +88,15 @@ ENV BUILD_SHA=$BUILD_SHA
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
-COPY --chown=node:node lib ./lib
 COPY --chown=node:node src ./src
-COPY --chown=node:node middleware ./middleware
+COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
+COPY --chown=node:node .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node start-server.js ./start-server.js
 
 EXPOSE $PORT
 
-CMD ["node", "server.js"]
+CMD ["node", "src/frame/server.js"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations
@@ -106,8 +104,8 @@ CMD ["node", "server.js"]
 FROM preview as production
 
 # Override what was set for previews
-# Make this match the default of `Object.keys(languages)` in lib/languages.js
-ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
+# Make this match the default of `Object.keys(languages)` in src/languages/lib/languages.js
+ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

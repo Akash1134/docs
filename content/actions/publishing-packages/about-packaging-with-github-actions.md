@@ -8,15 +8,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
   - Packaging
 shortTitle: Packaging with GitHub Actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.package_registry.about-packaging-and-actions %}

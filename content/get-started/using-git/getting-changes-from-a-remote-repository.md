@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Get changes from a remote
 ---
@@ -27,9 +26,17 @@ $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSIT
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
+You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
 
-![Remote URL list](/assets/images/help/repository/remotes-url.png)
+{% ifversion global-nav-update %}
+
+  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
+
+{% else %}
+
+  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
+
+{% endif %}
 
 When you run `git clone`, the following actions occur:
 - A new folder called `repo` is made
@@ -44,7 +51,7 @@ such remote-tracking branch names to `origin/foo`.
 
 ## Fetching changes from a remote repository
 
-Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
+Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags _without_ merging those changes into your own branches.
 
 If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 
@@ -68,7 +75,7 @@ $ git merge REMOTE-NAME/BRANCH-NAME
 
 ## Pulling changes from a remote repository
 
-`git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
+`git pull` is a convenient shortcut for completing both `git fetch` and `git merge`in the same command:
 
 ```shell
 $ git pull REMOTE-NAME BRANCH-NAME

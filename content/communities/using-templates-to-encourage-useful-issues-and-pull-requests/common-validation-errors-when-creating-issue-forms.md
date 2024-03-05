@@ -2,8 +2,7 @@
 title: Common validation errors when creating issue forms
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: issue-forms
 topics:
   - Community
 ---
@@ -204,7 +203,6 @@ body:
 
 `id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
 
-
 ## Labels are too similar
 
 Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
@@ -383,7 +381,6 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 ### Example of "body[i]: label must be a string" error
 
 The `label` below is being parsed as a Boolean, but it should be a string.
-
 
 ```yaml
 body:
@@ -631,7 +628,7 @@ body:
 
 ## Body cannot be empty
 
-The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+The template body `key:value` pair cannot be empty. For more information about which top-level keys are required, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
 
 The error can be fixed by adding the `body:` section.
 

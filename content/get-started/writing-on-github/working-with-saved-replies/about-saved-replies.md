@@ -8,10 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
-![Saved replies](/assets/images/help/settings/saved-replies.png)
 
 Saved replies allow you to create a reusable response to issues and pull requests. Save time by creating a saved reply for the responses you use most frequently.
 

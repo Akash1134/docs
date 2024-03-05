@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -25,8 +24,6 @@ In the "Contribution activity" section of your profile page, you can click the n
 ## Missing commit details from commits in your timeline
 
 If you click a commit link from your profile page and don't see all of the expected commits on the repository's commits page, then it's possible the commit history in Git was rewritten and the commit author date and the commit date are different.
-
-![Repository page with message that says "no commits found for octocat"](/assets/images/help/repository/no-commits-found.png)
 
 ## How GitHub uses the Git author date and commit date
 
