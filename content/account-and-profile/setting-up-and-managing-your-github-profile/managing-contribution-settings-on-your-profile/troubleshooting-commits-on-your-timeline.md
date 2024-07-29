@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -25,8 +24,6 @@ In the "Contribution activity" section of your profile page, you can click the n
 ## Missing commit details from commits in your timeline
 
 If you click a commit link from your profile page and don't see all of the expected commits on the repository's commits page, then it's possible the commit history in Git was rewritten and the commit author date and the commit date are different.
-
-![Repository page with message that says "no commits found for octocat"](/assets/images/help/repository/no-commits-found.png)
 
 ## How GitHub uses the Git author date and commit date
 
@@ -52,10 +49,10 @@ CommitDate: Tue Apr 10 06:25:08 2018 +0900
 If the author and commit date are different, you can manually change the commit date in the URL to see the commit details.
 
 For example:
-- This URL uses the author date of `2018-04-03`:
+* This URL uses the author date of `2018-04-03`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
-- This URL uses the commit date of `2018-04-10`:
+* This URL uses the commit date of `2018-04-10`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 

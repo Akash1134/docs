@@ -5,13 +5,12 @@ intro: Use OpenID Connect within your workflows to authenticate with cloud provi
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -30,9 +29,11 @@ To use OIDC, you will first need to configure your cloud provider to trust {% da
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
+
+{% data reusables.actions.oidc-deployment-protection-rules %}
 
 ### Adding permissions settings
 
@@ -42,17 +43,19 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 If your cloud provider has created an official action for using OIDC with {% data variables.product.prodname_actions %}, it will allow you to easily exchange the OIDC token for an access token. You can then update your workflows to use this token when accessing cloud resources.
 
+For example, Alibaba Cloud created [`aliyun/configure-aliyun-credentials-action`](https://github.com/aliyun/configure-aliyun-credentials-action) to integrate with using OIDC with {% data variables.product.prodname_dotcom %}.
+
 ## Using custom actions
 
 If your cloud provider doesn't have an official action, or if you prefer to create custom scripts, you can manually request the JSON Web Token (JWT) from {% data variables.product.prodname_dotcom %}'s OIDC provider.
 
-If you're not using an official action, then {% data variables.product.prodname_dotcom %} recommends that you use the Actions core toolkit. Alternatively, you can use the following environment variables to retrieve the token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
+If you're not using an official action, then {% data variables.product.prodname_dotcom %} recommends that you use the Actions core toolkit. Alternatively, you can use the following environment variables to retrieve the token: `ACTIONS_ID_TOKEN_REQUEST_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
 
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
 1. Add permissions settings for the token.
-2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
-3. Add code that exchanges the OIDC token with your cloud provider for an access token.
+1. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
+1. Add code that exchanges the OIDC token with your cloud provider for an access token.
 
 ### Requesting the JWT using the Actions core toolkit
 
@@ -78,7 +81,7 @@ jobs:
 
 ### Requesting the JWT using environment variables
 
-The following example demonstrates how to use enviroment variables to request a JSON Web Token.
+The following example demonstrates how to use environment variables to request a JSON Web Token.
 
 For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
 
@@ -114,11 +117,7 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
             fi
         }
         jwtd $IDTOKEN
-{%- ifversion actions-save-state-set-output-envs %}
         echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
-{%- else %}
-        echo "::set-output name=idToken::${IDTOKEN}"
-{%- endif %}
       id: tokenid
 ```
 
@@ -133,4 +132,11 @@ The steps for exchanging the OIDC token for an access token will vary for each c
 ### Accessing resources in your cloud provider
 
 Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
+
+For example, Alibaba Cloud maintains their own instructions for OIDC authentication. For more information, see [Overview of OIDC-based SSO](https://www.alibabacloud.com/help/en/ram/user-guide/overview-of-oidc-based-sso) in the Alibaba Cloud documentation.
+
 In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

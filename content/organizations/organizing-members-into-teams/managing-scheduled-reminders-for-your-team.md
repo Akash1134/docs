@@ -22,6 +22,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ## Creating a scheduled reminder for a team
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -43,8 +44,10 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.ignored-labels %}
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
+{% data reusables.reminders.test-reminder %}
 
 ## Managing a scheduled reminder for a team
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -53,8 +56,10 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
+{% data reusables.reminders.test-reminder %}
 
 ## Deleting a scheduled reminder for a team
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -64,5 +69,6 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)"
+* [Getting started](https://github.com/integrations/slack?tab=readme-ov-file#getting-started) in the Slack integrations documentation
+* "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)"

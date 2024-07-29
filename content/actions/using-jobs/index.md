@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /using-jobs-in-a-workflow
@@ -15,7 +14,7 @@ children:
   - /using-conditions-to-control-job-execution
   - /using-a-matrix-for-your-jobs
   - /using-concurrency
-  - /using-environments-for-jobs
+  - /using-environments-for-deployment
   - /running-jobs-in-a-container
   - /setting-default-values-for-jobs
   - /assigning-permissions-to-jobs

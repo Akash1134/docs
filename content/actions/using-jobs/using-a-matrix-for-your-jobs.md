@@ -1,17 +1,15 @@
 ---
 title: Using a matrix for your jobs
-shortTitle: Matrixes
+shortTitle: Matrices
 intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About matrix strategies
@@ -49,6 +47,10 @@ redirect_from:
 ## Excluding matrix configurations
 
 {% data reusables.actions.jobs.matrix-exclude %}
+
+## Example: Using an output to define two matrices
+
+{% data reusables.actions.jobs.matrix-used-twice %}
 
 ## Handling failures
 

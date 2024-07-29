@@ -1,6 +1,6 @@
 ---
-title: GitHub Actions Documentation
-shortTitle: GitHub Actions
+title: '{% data variables.product.prodname_actions %} documentation'
+shortTitle: '{% data variables.product.prodname_actions %}'
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
@@ -12,9 +12,9 @@ featuredLinks:
     - /actions/automating-builds-and-tests/about-continuous-integration
     - /actions/deployment/about-deployments/deploying-with-github-actions
     - /actions/publishing-packages/about-packaging-with-github-actions
-    - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
+    - /actions/monitoring-and-troubleshooting-workflows
   guideCards:
-    - /actions/using-workflows/using-starter-workflows
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/publishing-packages/publishing-nodejs-packages
     - /actions/automating-builds-and-tests/building-and-testing-powershell
   popular:
@@ -25,7 +25,7 @@ featuredLinks:
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/variables
-    - /actions/security-guides/encrypted-secrets
+    - /actions/security-guides/using-secrets-in-github-actions
 changelog:
   label: actions
 redirect_from:
@@ -40,7 +40,6 @@ layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /quickstart
@@ -60,6 +59,7 @@ children:
   - /hosting-your-own-runners
   - /security-guides
   - /creating-actions
+  - /administering-github-actions
   - /guides
 ---
 

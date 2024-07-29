@@ -8,10 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
-![Saved replies](/assets/images/help/settings/saved-replies.png)
 
 Saved replies allow you to create a reusable response to issues and pull requests. Save time by creating a saved reply for the responses you use most frequently.
 
@@ -23,7 +21,7 @@ You can also use the {% data variables.product.product_name %}-provided "Duplica
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"

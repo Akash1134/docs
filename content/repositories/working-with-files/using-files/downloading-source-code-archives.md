@@ -4,7 +4,6 @@ intro: 'You can download a snapshot of the code in your repository.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -21,18 +20,15 @@ You can download the source code archives in three ways.
 ### Downloading source code archives from the repository view
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click {% octicon "download" aria-label="The download icon" %} **Code**.
-
-   !["Code" button](/assets/images/help/repository/code-button.png)
-
-1. Click {% octicon "file-zip" aria-label="The ZIP icon" %} **Download ZIP**.
+{% data reusables.repositories.click-code-dropdown %}
+{% data reusables.repositories.download-zip %}
 
 ### Downloading source code archives from a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. Scroll down to the "Assets" section of the release.
-1. To download the source code, click {% octicon "file-zip" aria-label="The ZIP icon" %} **Source code (zip)** or {% octicon "file-zip" aria-label="The ZIP icon" %} **Source code (tar.gz)**.
+1. To download the source code, click {% octicon "file-zip" aria-hidden="true" %} **Source code (zip)** or {% octicon "file-zip" aria-hidden="true" %} **Source code (tar.gz)**.
 
 ### Downloading source code archives from a tag
 
@@ -50,7 +46,7 @@ Source code archives are available at specific URLs for each repository. For exa
 | Type of archive | Example | URL     |
 |-----------------|---------|---------|
 | Branch          | `main`  | [https://github.com/github/codeql/archive/refs/**heads/main**.tar.gz](https://github.com/github/codeql/archive/refs/heads/main.tar.gz) |
-| Tag             | `codeql-cli/latest` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/latest**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/latest.zip)  |
+| Tag             | `codeql-cli/v2.12.0` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/v2.12.0**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.12.0.zip)  |
 | Commit          | `aef66c4` | [https://github.com/github/codeql/archive/**aef66c462abe817e33aad91d97aa782a1e2ad2c7**.zip](https://github.com/github/codeql/archive/aef66c462abe817e33aad91d97aa782a1e2ad2c7.zip) |
 
 {% note %}
@@ -63,9 +59,10 @@ Source code archives are available at specific URLs for each repository. For exa
 
 Source code archives are generated on request, cached for a while, and then deleted. If the same archive is requested again in the future, it'll be regenerated. It's important to understand what guarantees {% data variables.product.company_short %} makes about source code archives.
 
-* An archive of a commit ID will always have the same file contents whenever it's requested, assuming the commit ID is still in the repository.
+* An archive of a commit ID will always have the same file contents whenever it's requested, assuming the commit ID is still in the repository and the repository's name has not changed.
 * Because branches and tags can move to different commit IDs, future downloads of an archive may have different contents than previously downloaded archives of the same branch or tag. Assuming the branch or tag still points at the same commit ID, it will have the same file contents.
 * The exact compression settings used to generate a zipball or tarball may change over time. The extracted contents won't change if the branch or tag doesn't change, but the outer compressed archive may have a different byte layout. {% data variables.product.company_short %} will give at least six months' notice before changing compression settings.
+* The name of the repository is part of the directory structure inside the archive. Therefore, if the repository name changes, the root directory name will change as well.
 
 If you rely on stability of source code archives for reproducibility (ensuring you always get identical files inside the archive), we recommend using the [archives REST API](/rest/repos/contents#download-a-repository-archive-tar) with a commit ID for `:ref`. Using the commit ID ensures you'll always get the same file contents inside the archive and you’ll be immune to repositories rewriting tags or moving branch heads.
 

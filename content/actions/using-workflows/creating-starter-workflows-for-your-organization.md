@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -17,7 +16,6 @@ topics:
   - CI
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -26,9 +24,12 @@ topics:
 
 {% data reusables.actions.starter-workflow-categories %}
 
+> [!NOTE]
+> Because starter workflows require a public `.github` repository, they are not available for {% data variables.product.prodname_emus %}.
+
 ## Creating a starter workflow
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Starter workflows can be created by users with write access to the organization's _public_ `.github` repository. These can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization).
@@ -42,15 +43,26 @@ Starter workflows created by users can only be used to create workflows in publi
 
 This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. If it doesn't already exist, create a new _public_ repository named `.github` in your organization.
+1. Create a directory named `workflow-templates`.
+1. Create your new workflow file inside the `workflow-templates` directory.
 
    If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
 
+   {% ifversion ghes %}
+   {% note %}
+
+   **Note:** The following values in the `runs-on` key are also treated as placeholders:
+
+   * "ubuntu-latest" is replaced with "[ self-hosted ]"
+   * "windows-latest" is replaced with "[ self-hosted, windows ]"
+   * "macos-latest" is replaced with "[ self-hosted, macOS ]"
+
+   {% endnote %}{% endif %}
+
    For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
-   ```yaml{:copy}
+   ```yaml copy
    name: Octo Organization CI
 
    on:
@@ -69,8 +81,10 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
-   ```json{:copy}
+
+1. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+
+   ```json copy
    {
        "name": "Octo Organization Workflow",
        "description": "Octo Organization CI starter workflow.",
@@ -85,6 +99,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
+
    * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
    * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
    * `iconName` - **Optional.** Specifies an icon for the workflow that is displayed in the list of workflows. `iconName` can one of the following types:
@@ -92,15 +107,13 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
      * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
    * `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
      * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-     * Linguist languages from the list in the [linguist](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) repository.
+     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
      * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
-
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+To add another starter workflow, add your files to the same `workflow-templates` directory.
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."

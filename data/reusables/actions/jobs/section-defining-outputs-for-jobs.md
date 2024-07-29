@@ -6,9 +6,16 @@ Job outputs containing expressions are evaluated on the runner at the end of eac
 
 To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#needs-context)."
 
+{% note %}
+
+**Note:** `$GITHUB_OUTPUT` is shared between all steps in a job. If you use the same output name in multiple steps, the last step to write to the output will override the value. If your job uses a matrix and writes to `$GITHUB_OUTPUT`, the content will be overwritten for each matrix combination. You can use the `matrix` context to create unique output names for each job configuration. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#matrix-context)."
+
+{% endnote %}
+
 ### Example: Defining outputs for a job
 
 {% raw %}
+
 ```yaml
 jobs:
   job1:
@@ -18,18 +25,10 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-      - id: step1{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+      - id: step1
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
-{%- else %}
-        run: echo "::set-output name=test::hello"
-{%- endif %}{% raw %}
-      - id: step2{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+      - id: step2
         run: echo "test=world" >> "$GITHUB_OUTPUT"
-{%- else %}
-        run: echo "::set-output name=test::world"
-{%- endif %}{% raw %}
   job2:
     runs-on: ubuntu-latest
     needs: job1
@@ -39,4 +38,5 @@ jobs:
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: echo "$OUTPUT1 $OUTPUT2"
 ```
+
 {% endraw %}

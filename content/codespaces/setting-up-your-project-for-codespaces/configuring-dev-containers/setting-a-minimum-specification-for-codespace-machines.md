@@ -33,7 +33,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 {% data reusables.codespaces.edit-devcontainer-json %}
 1. Edit the `devcontainer.json` file, adding the `hostRequirements` property at the top level of the file, within the enclosing JSON object. For example:
 
-   ```json{:copy}
+   ```json copy
    "hostRequirements": {
       "cpus": 8,
       "memory": "8gb",
@@ -43,14 +43,14 @@ If your project needs a certain level of compute power, you can configure {% dat
 
    You can specify any or all of the options: `cpus`, `memory`, and `storage`.
 
-   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 1. Save the file and commit your changes to the required branch of the repository.
 
    Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
 
-   ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
+   ![Screenshot of a list of machine types. The 2- and 4-core options are labeled "Below dev container requirements."](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)"
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)"

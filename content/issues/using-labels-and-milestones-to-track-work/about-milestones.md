@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -17,15 +16,13 @@ When you [create a milestone](/issues/using-labels-and-milestones-to-track-work/
 
 To better manage your project, you can [view details about your milestone](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress). From the milestone page, you can see:
 
-- A user-provided description of the milestone, which can include information like a project overview, relevant teams, and projected due dates
-- The milestone's due date
-- The milestone's completion percentage
-- The number of open and closed issues and pull requests associated with the milestone
-- A list of the open and closed issues and pull requests associated with the milestone
+* A user-provided description of the milestone, which can include information like a project overview, relevant teams, and projected due dates
+* The milestone's due date
+* The milestone's completion percentage
+* The number of open and closed issues and pull requests associated with the milestone
+* A list of the open and closed issues and pull requests associated with the milestone
 
 Additionally, you can edit the milestone from the milestone page and create new issues that are, by default, associated with the milestone.
-
-![Milestone page](/assets/images/help/issues/milestone-info-page.png)
 
 ## Prioritizing issues and pull requests in milestones
 
@@ -36,12 +33,3 @@ You can prioritize open issues and pull requests in a milestone by clicking to t
 **Note:** If there are more than 500 open issues in a milestone, you won't be able to prioritize issues.
 
 {% endnote %}
-
-![Reordered milestone](/assets/images/help/issues/milestone-reordered.gif)
-
-## Further reading
-
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress)"

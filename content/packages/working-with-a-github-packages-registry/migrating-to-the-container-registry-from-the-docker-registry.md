@@ -39,20 +39,18 @@ topics:
 
 After a Docker image has been migrated to the {% data variables.product.prodname_container_registry %}, you'll see the following changes to the details for the package.
 
-- The icon will be the {% data variables.product.prodname_container_registry %} logo instead of the Docker logo.
-- The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
-
-{% ifversion fpt or ghec %}
-
-![Screenshot of a Docker image migrated to the {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
-
-{% endif %}
+* The package icon will be the {% data variables.product.prodname_container_registry %} logo (a {% octicon "container" aria-label="The container icon" %} icon) instead of the Docker logo.
+* The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
 
 {% data reusables.package_registry.container-registry-migration-namespaces %}
 
-{% ifversion fpt or ghec %}
+{% ifversion packages-rest-api %}
 
-After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[AUTOTITLE](/rest/packages)" in the REST API documentation.
+After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[AUTOTITLE](/rest/packages)."
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
 
 ## About billing for {% data variables.product.prodname_container_registry %}
 
@@ -64,6 +62,6 @@ For more information about billing for the {% data variables.product.prodname_co
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
+* "[AUTOTITLE](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
 
 {% endif %}

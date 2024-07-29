@@ -18,6 +18,13 @@ topics:
   - User account
 shortTitle: Upgrade Git LFS storage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user-settings.access_settings %}
@@ -36,11 +43,16 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_confirm %}
 
 {% ifversion ghec %}
+
 ## Purchasing additional storage and bandwidth for an enterprise account
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+{% note %}
+
+**Note:** If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -53,7 +65,7 @@ If your enterprise account is invoiced, you may not be able to purchase Git LFS 
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
-- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
+* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
